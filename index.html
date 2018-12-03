@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+  <title>The Daily Talk</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/screen.css">
+</head>
+
+<body class="bg-success">
+  <nav class="navbar fixed-top navbar-expand-lg bg-success shadow-sm">
+    <h1 class="mx-auto mt-3 text-white" href="/">The Daily Talk</h1>
+    <div class="g-signin2 float-right" data-onsuccess="onSignIn"></div>
+    <a href="#" class="btn btn-outline-primary" onclick="signOut();">Sign out</a>
+  </nav>
+  <nav class="navbar"><h1 class="mt-4">_</h1></nav>
+  <div id="app" class="container">
+    <remarkable-memories></remarkable-memories>
+
+  </div>
+  <script type="text/javascript" src="/dist/vendor.fd75c4899f05b8fba388.js"></script><script type="text/javascript" src="/dist/main.105ba5d3d9846197493f.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+    function onSignIn(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    }
+    function signOut() {
+      var auth2 = gapi.auth2.getAuthInstance();
+      auth2.signOut().then(function () {
+        console.log('User signed out.');
+      });
+    }
+  </script>
+</body>
+
+</html>
