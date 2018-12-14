@@ -3,3 +3,4 @@ jekyll/
 package-lock.json
 webpack.config.dev.js
 ngrok
+config.js
